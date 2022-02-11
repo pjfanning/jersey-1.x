@@ -53,6 +53,8 @@ import javax.xml.bind.Unmarshaller;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.sun.jersey.api.json.JSONConfiguration;
 import com.sun.jersey.json.impl.AttrAndCharDataBean;
 import com.sun.jersey.json.impl.ComplexBeanWithAttributes;
@@ -73,9 +75,6 @@ import com.sun.jersey.json.impl.TwoListsWrapperBean;
 import com.sun.jersey.json.impl.User;
 import com.sun.jersey.json.impl.UserTable;
 import com.sun.jersey.json.impl.writer.Stax2JacksonWriter;
-
-import org.codehaus.jackson.JsonFactory;
-import org.codehaus.jackson.JsonGenerator;
 
 import junit.framework.TestCase;
 

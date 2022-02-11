@@ -47,6 +47,8 @@ import java.util.Map;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.sun.jersey.json.impl.AttrAndCharDataBean;
 import com.sun.jersey.json.impl.ComplexBeanWithAttributes;
 import com.sun.jersey.json.impl.ComplexBeanWithAttributes2;
@@ -65,9 +67,6 @@ import com.sun.jersey.json.impl.TreeModel;
 import com.sun.jersey.json.impl.TwoListsWrapperBean;
 import com.sun.jersey.json.impl.User;
 import com.sun.jersey.json.impl.UserTable;
-
-import org.codehaus.jackson.JsonFactory;
-import org.codehaus.jackson.JsonGenerator;
 
 import junit.framework.TestCase;
 

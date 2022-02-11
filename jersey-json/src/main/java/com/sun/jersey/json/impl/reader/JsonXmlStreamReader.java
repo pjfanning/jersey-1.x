@@ -52,11 +52,10 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonParser;
 import com.sun.jersey.api.json.JSONConfiguration;
 import com.sun.jersey.api.json.JSONJAXBContext;
-
-import org.codehaus.jackson.JsonFactory;
-import org.codehaus.jackson.JsonParser;
 
 /**
  * Implementation of {@link XMLStreamReader} for JSON streams in natural or mapped notation. This class contains a factory

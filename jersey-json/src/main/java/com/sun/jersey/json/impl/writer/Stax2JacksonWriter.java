@@ -59,11 +59,10 @@ import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.sun.jersey.api.json.JSONConfiguration;
 import com.sun.jersey.json.impl.DefaultJaxbXmlDocumentStructure;
 import com.sun.jersey.json.impl.JaxbXmlDocumentStructure;
-
-import org.codehaus.jackson.JsonGenerator;
 
 /**
  * Implementation of {@link XMLStreamWriter} for JSON streams in natural notation.

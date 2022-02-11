@@ -45,12 +45,10 @@ import javax.xml.namespace.QName;
 import javax.xml.stream.Location;
 import javax.xml.stream.XMLStreamException;
 
+import com.fasterxml.jackson.core.JsonParser;
 import com.sun.jersey.api.json.JSONConfiguration;
 import com.sun.jersey.json.impl.DefaultJaxbXmlDocumentStructure;
-import com.sun.jersey.json.impl.JSONHelper;
 import com.sun.jersey.json.impl.JaxbXmlDocumentStructure;
-
-import org.codehaus.jackson.JsonParser;
 
 /**
  * {@code XmlEventProvider} for JSON in natural notation.

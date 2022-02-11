@@ -40,6 +40,8 @@
 
 package com.sun.jersey.json.impl.provider.entity;
 
+import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
+import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 import com.sun.jersey.api.json.JSONConfiguration;
 import com.sun.jersey.core.spi.component.ComponentContext;
 import com.sun.jersey.core.spi.component.ComponentInjector;
@@ -47,6 +49,7 @@ import com.sun.jersey.core.spi.component.ComponentScope;
 import com.sun.jersey.core.util.FeaturesAndProperties;
 import com.sun.jersey.spi.inject.Injectable;
 import com.sun.jersey.spi.inject.InjectableProviderContext;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -60,8 +63,6 @@ import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.ext.MessageBodyReader;
 import javax.ws.rs.ext.MessageBodyWriter;
 import javax.ws.rs.ext.Providers;
-import org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider;
-import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
 
 /**
  *

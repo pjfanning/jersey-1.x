@@ -39,9 +39,9 @@
  */
 package com.sun.jersey.json.impl.reader;
 
-import javax.xml.stream.Location;
+import com.fasterxml.jackson.core.JsonLocation;
 
-import org.codehaus.jackson.JsonLocation;
+import javax.xml.stream.Location;
 
 /**
  * Location of an {@link JsonXmlEvent Json XML event} in JSON stream.

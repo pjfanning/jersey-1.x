@@ -39,20 +39,21 @@
  */
 package com.sun.jersey.json.impl.reader;
 
+import com.fasterxml.jackson.core.Base64Variant;
+import com.fasterxml.jackson.core.JsonLocation;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonStreamContext;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.ObjectCodec;
+import com.fasterxml.jackson.core.TreeNode;
+import com.fasterxml.jackson.core.Version;
+import com.fasterxml.jackson.core.type.TypeReference;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-
-import org.codehaus.jackson.Base64Variant;
-import org.codehaus.jackson.JsonLocation;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.JsonParseException;
-import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonProcessingException;
-import org.codehaus.jackson.JsonStreamContext;
-import org.codehaus.jackson.JsonToken;
-import org.codehaus.jackson.ObjectCodec;
-import org.codehaus.jackson.type.TypeReference;
 
 /**
  *
@@ -64,6 +65,7 @@ public class JacksonRootAddingParser extends JsonParser {
 
     String rootName;
     JsonParser parser;
+    JsonToken _currToken;
     State state;
     boolean isClosed = false;
 
@@ -79,19 +81,33 @@ public class JacksonRootAddingParser extends JsonParser {
         this.rootName = rootName;
     }
 
-    @Override
+    @Deprecated
     public void enableFeature(Feature feature) {
-        parser.enableFeature(feature);
+        enable(feature);
     }
 
     @Override
+    public JsonParser enable(Feature feature) {
+        return parser.enable(feature);
+    }
+
+    @Deprecated
     public void disableFeature(Feature feature) {
-        parser.disableFeature(feature);
+        disable(feature);
     }
 
     @Override
+    public JsonParser disable(Feature feature) {
+        return parser.disable(feature);
+    }
+
+    @Deprecated
     public void setFeature(Feature feature, boolean isSet) {
-        parser.setFeature(feature, isSet);
+        if (isSet) {
+            enable(feature);
+        } else {
+            disable(feature);
+        }
     }
 
     @Override
@@ -134,6 +150,11 @@ public class JacksonRootAddingParser extends JsonParser {
     }
 
     @Override
+    public String getValueAsString(String s) throws IOException {
+        return null;
+    }
+
+    @Override
     public <T> T readValueAs(Class<T> type) throws IOException, JsonProcessingException {
         return parser.readValueAs(type);
     }
@@ -144,7 +165,7 @@ public class JacksonRootAddingParser extends JsonParser {
     }
 
     @Override
-    public JsonNode readValueAsTree() throws IOException, JsonProcessingException {
+    public TreeNode readValueAsTree() throws IOException, JsonProcessingException {
         return parser.readValueAsTree();
     }
 
@@ -183,6 +204,46 @@ public class JacksonRootAddingParser extends JsonParser {
     @Override
     public JsonParser skipChildren() throws IOException, JsonParseException {
         return parser.skipChildren();
+    }
+
+    @Override
+    public JsonToken getCurrentToken() {
+        return _currToken;
+    }
+
+    @Override
+    public int getCurrentTokenId() {
+        return _currToken == null ? -1 : _currToken.id();
+    }
+
+    @Override
+    public boolean hasCurrentToken() {
+        return _currToken != null;
+    }
+
+    @Override
+    public boolean hasTokenId(int i) {
+        return false;
+    }
+
+    @Override
+    public boolean hasToken(JsonToken jsonToken) {
+        return false;
+    }
+
+    @Override
+    public void clearCurrentToken() {
+        _currToken = null;
+    }
+
+    @Override
+    public JsonToken getLastClearedToken() {
+        return null;
+    }
+
+    @Override
+    public void overrideCurrentName(String s) {
+
     }
 
     @Override
@@ -237,6 +298,11 @@ public class JacksonRootAddingParser extends JsonParser {
     }
 
     @Override
+    public boolean hasTextCharacters() {
+        return false;
+    }
+
+    @Override
     public Number getNumberValue() throws IOException, JsonParseException {
         return parser.getNumberValue();
     }
@@ -274,5 +340,10 @@ public class JacksonRootAddingParser extends JsonParser {
     @Override
     public void setCodec(ObjectCodec c) {
         parser.setCodec(c);
+    }
+
+    @Override
+    public Version version() {
+        return null;
     }
 }
