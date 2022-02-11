@@ -185,7 +185,7 @@ public class JSONConfiguration {
          * If set to true, generated JSON will contain new-line characters and indentation, so that
          * the output is easy to read for people.
          * This property is valid for the  {@link JSONConfiguration.Notation#NATURAL} notation only.
-         * <p/>
+         * <p>
          * The default value is false.
          *
          * @param humanReadableFormatting whether the output should be formatted to be readable by humans easily.

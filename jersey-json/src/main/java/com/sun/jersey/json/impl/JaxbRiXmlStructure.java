@@ -59,7 +59,7 @@ import com.sun.xml.bind.v2.runtime.unmarshaller.UnmarshallingContext;
 
 /**
  * Implementation of {@code JaxbXmlDocumentStructure} for JAXB RI provider.
- * <p/>
+ * <p>
  * Note: If you're changing this class consider changing {@link JaxbJdkXmlStructure} as well.
  *
  * @author Jakub Podlesak (jakub.podlesak at oracle.com)

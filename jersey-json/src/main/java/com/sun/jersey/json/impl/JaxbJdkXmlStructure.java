@@ -52,7 +52,7 @@ import javax.xml.namespace.QName;
 
 /**
  * Implementation of {@code JaxbXmlDocumentStructure} for JAXB provider in JDK.
- * <p/>
+ * <p>
  * Note: If you're changing this class consider changing {@link JaxbRiXmlStructure} as well.
  *
  * @author Jakub Podlesak (jakub.podlesak at oracle.com)

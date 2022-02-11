@@ -47,11 +47,11 @@ import javax.xml.namespace.QName;
 
 /**
  * Provides XML structure information (expected elements/attributes) about JAXB element classes that are being unmarshalled.
- * <p/>
+ * <p>
  * Implementations of this interface are notified about the change of currently processed element via methods {@link
  * #startElement(javax.xml.namespace.QName)} and {@link #endElement(javax.xml.namespace.QName)} where the {@code QName} is
  * represented by the element name.
- * <p/>
+ * <p>
  * Note: This class is designed to support the unmarshalling JSONs in natural notation since the parser does not have other
  * means to decide whether the entities of currently processed element belongs to either to the group of elements or to the
  * group of attributes.
@@ -105,7 +105,7 @@ public interface JaxbXmlDocumentStructure {
 
     /**
      * Returns the {@link Type} of individuals stored in an array/list.
-     * <p/>
+     * <p>
      * Note: This method should be called only if an invocation of {@link #getEntityType(javax.xml.namespace.QName, boolean)}
      * returns a collection/array type.
      *

@@ -53,7 +53,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * these default values are doubled in the list (list is filled with default values when a new instance is created and after
  * unmarshalling XML/JSON stream additional elements are added to this list - MOXy doesn't override the existing list with a
  * new one created during unmarshalling).
- * <p/>
+ * <p>
  * Workaround: Set {@link XmlAccessorType} to {@link XmlAccessType#FIELD}, do not initialize the list in the default constructor
  * (field initializer) and assign the value to the list that should contain predefined values manually (in this case the value
  * object is represented by {@code #DEFAULT_HEADERS}).

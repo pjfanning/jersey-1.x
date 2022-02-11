@@ -77,7 +77,7 @@
  *   &#064;GET &#064;Path("two") &#064;Produces(MediaType.APPLICATION_JSON)
  *   public <span style="font-weight:bold">BeanTwo</span> getTwo() {
  *       BeanTwo two = new BeanTwo();
- *       two.titles = new ArrayList<String>(1){{add("Title1");}};
+ *       two.titles = new ArrayList&lt;String&gt;(1){{add("Title1");}};
  *       return two;
  *   }
  * </pre></blockquote>
