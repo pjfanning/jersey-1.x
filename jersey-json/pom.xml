@@ -44,14 +44,32 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.sun.jersey</groupId>
-        <artifactId>jersey-project</artifactId>
-        <version>1.19.1</version>
-    </parent>
+    <groupId>com.github.pjfanning</groupId>
     <artifactId>jersey-json</artifactId>
+    <version>1.20-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>jersey-json</name>
+
+    <properties>
+        <jersey.core.version>1.19.1</jersey.core.version>
+        <jackson1.version>1.9.3</jackson1.version>
+        <jaxb.version>2.2.3-1</jaxb.version>
+        <moxy.version>2.4.2</moxy.version>
+        <junit.version>4.13.2</junit.version>
+    </properties>
+
+    <licenses>
+        <license>
+            <name>CDDL 1.1</name>
+            <url>http://glassfish.java.net/public/CDDL+GPL_1_1.html</url>
+            <distribution>repo</distribution>
+        </license>
+        <license>
+            <name>GPL2 w/ CPE</name>
+            <url>http://glassfish.java.net/public/CDDL+GPL_1_1.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
     <profiles>
         <profile>
@@ -82,7 +100,7 @@
                 <dependency>
                     <groupId>com.sun.jersey</groupId>
                     <artifactId>jersey-core</artifactId>
-                    <version>${project.version}</version>
+                    <version>${jersey.core.version}</version>
                     <classifier>cobertura</classifier>
                 </dependency>
             </dependencies>
@@ -96,7 +114,7 @@
                 <dependency>
                     <groupId>com.sun.jersey</groupId>
                     <artifactId>jersey-core</artifactId>
-                    <version>${project.version}</version>
+                    <version>${jersey.core.version}</version>
                 </dependency>
             </dependencies>
         </profile>
@@ -118,11 +136,12 @@
         <dependency>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
+            <version>${jaxb.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>org.eclipse.persistence.moxy</artifactId>
-            <version>2.4.2</version>
+            <version>${moxy.version}</version>
             <scope>compile</scope>
             <optional>true</optional>
         </dependency>
@@ -130,22 +149,27 @@
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-core-asl</artifactId>
+            <version>${jackson1.version}</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-mapper-asl</artifactId>
+            <version>${jackson1.version}</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-jaxrs</artifactId>
+            <version>${jackson1.version}</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-xc</artifactId>
+            <version>${jackson1.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -167,11 +191,18 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3</version>
+                <inherited>true</inherited>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.8</version>
             </plugin>
 
             <plugin>
