@@ -40,18 +40,22 @@
 
 package com.sun.jersey.json.impl.writer;
 
+import com.fasterxml.jackson.core.Base64Variant;
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonStreamContext;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.ObjectCodec;
+import com.fasterxml.jackson.core.SerializableString;
+import com.fasterxml.jackson.core.TreeNode;
+import com.fasterxml.jackson.core.Version;
+
 import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import org.codehaus.jackson.Base64Variant;
-import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.JsonGenerator;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonProcessingException;
-import org.codehaus.jackson.JsonStreamContext;
-import org.codehaus.jackson.JsonToken;
-import org.codehaus.jackson.ObjectCodec;
 
 /**
  *
@@ -102,9 +106,9 @@ public class JacksonArrayWrapperGenerator extends JsonGenerator {
         }
     }
 
-    @Override @Deprecated
+    @Deprecated
     public void enableFeature(Feature feature) {
-        generator.enableFeature(feature);
+        enable(feature);
     }
 
     @Override
@@ -112,9 +116,9 @@ public class JacksonArrayWrapperGenerator extends JsonGenerator {
         return generator.enable(feature);
     }
 
-    @Override @Deprecated
+    @Deprecated
     public void disableFeature(Feature feature) {
-        generator.disableFeature(feature);
+        disable(feature);
     }
 
     @Override
@@ -122,19 +126,33 @@ public class JacksonArrayWrapperGenerator extends JsonGenerator {
         return generator.disable(feature);
     }
 
-    @Override
+    @Deprecated
     public void setFeature(Feature feature, boolean enabled) {
-        generator.setFeature(feature, enabled);
+        if (enabled) {
+            enable(feature);
+        } else {
+            disable(feature);
+        }
     }
 
-    @Override @Deprecated
+    @Deprecated
     public boolean isFeatureEnabled(Feature feature) {
-        return generator.isFeatureEnabled(feature);
+        return isEnabled(feature);
     }
 
     @Override
     public boolean isEnabled(Feature f) {
         return generator.isEnabled(f);
+    }
+
+    @Override
+    public int getFeatureMask() {
+        return 0;
+    }
+
+    @Override
+    public JsonGenerator setFeatureMask(int i) {
+        return null;
     }
 
     @Override
@@ -150,6 +168,11 @@ public class JacksonArrayWrapperGenerator extends JsonGenerator {
     @Override
     public ObjectCodec getCodec() {
         return generator.getCodec();
+    }
+
+    @Override
+    public Version version() {
+        return null;
     }
 
     @Override
@@ -184,7 +207,7 @@ public class JacksonArrayWrapperGenerator extends JsonGenerator {
     }
 
     @Override
-    public void writeTree(JsonNode node) throws IOException, JsonProcessingException {
+    public void writeTree(TreeNode node) throws IOException, JsonProcessingException {
         aboutToWriteANonNull();
         generator.writeTree(node);
     }
@@ -239,6 +262,11 @@ public class JacksonArrayWrapperGenerator extends JsonGenerator {
     }
 
     @Override
+    public void writeFieldName(SerializableString serializableString) throws IOException {
+
+    }
+
+    @Override
     public void writeString(String s) throws IOException, JsonGenerationException {
         aboutToWriteANonNull();
         generator.writeString(s);
@@ -248,6 +276,11 @@ public class JacksonArrayWrapperGenerator extends JsonGenerator {
     public void writeString(char[] text, int start, int length) throws IOException, JsonGenerationException {
         aboutToWriteANonNull();
         generator.writeString(text, start, length);
+    }
+
+    @Override
+    public void writeString(SerializableString serializableString) throws IOException {
+
     }
 
     @Override
@@ -290,6 +323,11 @@ public class JacksonArrayWrapperGenerator extends JsonGenerator {
     public void writeBinary(Base64Variant variant, byte[] bytes, int start, int count) throws IOException, JsonGenerationException {
         aboutToWriteANonNull();
         generator.writeBinary(variant, bytes, start, count);
+    }
+
+    @Override
+    public int writeBinary(Base64Variant base64Variant, InputStream inputStream, int i) throws IOException {
+        return 0;
     }
 
     @Override

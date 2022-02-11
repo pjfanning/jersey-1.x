@@ -39,16 +39,14 @@
  */
 package com.sun.jersey.json.impl.reader;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamException;
 
+import com.fasterxml.jackson.core.JsonParser;
 import com.sun.jersey.api.json.JSONConfiguration;
-
-import org.codehaus.jackson.JsonParser;
 
 /**
  * {@code XmlEventProvider} for JSON in mapped notation.

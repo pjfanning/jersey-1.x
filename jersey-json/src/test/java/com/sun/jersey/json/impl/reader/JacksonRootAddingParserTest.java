@@ -45,10 +45,11 @@
 package com.sun.jersey.json.impl.reader;
 
 import java.io.StringWriter;
+
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
 import junit.framework.TestCase;
-import org.codehaus.jackson.JsonFactory;
-import org.codehaus.jackson.JsonGenerator;
-import org.codehaus.jackson.JsonParser;
 
 /**
  *

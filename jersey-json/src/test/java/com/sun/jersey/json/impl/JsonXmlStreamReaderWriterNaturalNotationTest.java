@@ -49,12 +49,11 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.stream.XMLStreamReader;
 
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.sun.jersey.api.json.JSONConfiguration;
 import com.sun.jersey.json.impl.reader.JsonXmlStreamReader;
 import com.sun.jersey.json.impl.writer.Stax2JacksonWriter;
-
-import org.codehaus.jackson.JsonFactory;
-import org.codehaus.jackson.JsonGenerator;
 
 import static com.sun.jersey.json.impl.util.JSONNormalizer.normalizeJsonString;
 

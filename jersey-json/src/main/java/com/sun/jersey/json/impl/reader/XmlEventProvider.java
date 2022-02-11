@@ -51,11 +51,10 @@ import javax.xml.namespace.QName;
 import javax.xml.stream.Location;
 import javax.xml.stream.XMLStreamException;
 
+import com.fasterxml.jackson.core.JsonLocation;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonToken;
 import com.sun.jersey.api.json.JSONConfiguration;
-
-import org.codehaus.jackson.JsonLocation;
-import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonToken;
 
 /**
  * Abstract provider for creating {@code JsonXmlEvent} instances from {@code JsonParser}. Extensions of this class should

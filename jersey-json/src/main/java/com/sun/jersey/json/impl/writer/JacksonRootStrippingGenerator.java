@@ -40,17 +40,21 @@
 
 package com.sun.jersey.json.impl.writer;
 
+import com.fasterxml.jackson.core.Base64Variant;
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonStreamContext;
+import com.fasterxml.jackson.core.ObjectCodec;
+import com.fasterxml.jackson.core.SerializableString;
+import com.fasterxml.jackson.core.TreeNode;
+import com.fasterxml.jackson.core.Version;
+
 import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import org.codehaus.jackson.Base64Variant;
-import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.JsonGenerator;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonProcessingException;
-import org.codehaus.jackson.JsonStreamContext;
-import org.codehaus.jackson.ObjectCodec;
 
 /**
  *
@@ -80,13 +84,13 @@ public class JacksonRootStrippingGenerator extends JsonGenerator {
         return new JacksonRootStrippingGenerator(g);
     }
 
-    public static JsonGenerator createRootStrippingGenerator(JsonGenerator g, int treshold) {
-        return new JacksonRootStrippingGenerator(g, treshold);
+    public static JsonGenerator createRootStrippingGenerator(JsonGenerator g, int threshold) {
+        return new JacksonRootStrippingGenerator(g, threshold);
     }
 
-    @Override @Deprecated
+    @Deprecated
     public void enableFeature(Feature feature) {
-        generator.enableFeature(feature);
+        this.enableFeature(feature);
     }
 
     @Override
@@ -94,9 +98,9 @@ public class JacksonRootStrippingGenerator extends JsonGenerator {
         return generator.enable(feature);
     }
 
-    @Override @Deprecated
+    @Deprecated
     public void disableFeature(Feature feature) {
-        generator.disableFeature(feature);
+        this.disable(feature);
     }
 
     @Override
@@ -104,19 +108,33 @@ public class JacksonRootStrippingGenerator extends JsonGenerator {
         return generator.disable(feature);
     }
 
-    @Override
+    @Deprecated
     public void setFeature(Feature feature, boolean enabled) {
-        generator.setFeature(feature, enabled);
+       if (enabled) {
+           enable(feature);
+       } else {
+           disable(feature);
+       }
     }
 
-    @Override @Deprecated
+    @Deprecated
     public boolean isFeatureEnabled(Feature feature) {
-        return generator.isFeatureEnabled(feature);
+        return this.isEnabled(feature);
     }
 
     @Override
     public boolean isEnabled(Feature f) {
         return generator.isEnabled(f);
+    }
+
+    @Override
+    public int getFeatureMask() {
+        return 0;
+    }
+
+    @Override
+    public JsonGenerator setFeatureMask(int i) {
+        return null;
     }
 
     @Override
@@ -158,6 +176,11 @@ public class JacksonRootStrippingGenerator extends JsonGenerator {
     }
 
     @Override
+    public void writeFieldName(SerializableString serializableString) throws IOException {
+
+    }
+
+    @Override
     public void writeString(String s) throws IOException, JsonGenerationException {
         generator.writeString(s);
     }
@@ -165,6 +188,11 @@ public class JacksonRootStrippingGenerator extends JsonGenerator {
     @Override
     public void writeString(char[] text, int start, int length) throws IOException, JsonGenerationException {
         generator.writeString(text, start, length);
+    }
+
+    @Override
+    public void writeString(SerializableString serializableString) throws IOException {
+
     }
 
     @Override
@@ -200,6 +228,11 @@ public class JacksonRootStrippingGenerator extends JsonGenerator {
     @Override
     public void writeBinary(Base64Variant variant, byte[] bytes, int start, int count) throws IOException, JsonGenerationException {
         generator.writeBinary(variant, bytes, start, count);
+    }
+
+    @Override
+    public int writeBinary(Base64Variant base64Variant, InputStream inputStream, int i) throws IOException {
+        return 0;
     }
 
     @Override
@@ -274,6 +307,11 @@ public class JacksonRootStrippingGenerator extends JsonGenerator {
     }
 
     @Override
+    public Version version() {
+        return null;
+    }
+
+    @Override
     public void writeRawValue(String rawString) throws IOException, JsonGenerationException {
         generator.writeRawValue(rawString);
     }
@@ -299,7 +337,7 @@ public class JacksonRootStrippingGenerator extends JsonGenerator {
     }
 
     @Override
-    public void writeTree(JsonNode node) throws IOException, JsonProcessingException {
+    public void writeTree(TreeNode node) throws IOException {
         generator.writeTree(node);
     }
 

@@ -49,6 +49,8 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.XMLStreamWriter;
 
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.sun.jersey.api.json.JSONConfiguration;
 import com.sun.jersey.api.json.JSONJAXBContext;
 import com.sun.jersey.core.util.ReaderWriter;
@@ -58,8 +60,6 @@ import com.sun.jersey.json.impl.writer.JacksonRootStrippingGenerator;
 import com.sun.jersey.json.impl.writer.JsonXmlStreamWriter;
 import com.sun.jersey.json.impl.writer.Stax2JacksonWriter;
 
-import org.codehaus.jackson.JsonFactory;
-import org.codehaus.jackson.JsonGenerator;
 import org.codehaus.jettison.badgerfish.BadgerFishXMLStreamReader;
 import org.codehaus.jettison.badgerfish.BadgerFishXMLStreamWriter;
 import org.codehaus.jettison.json.JSONObject;

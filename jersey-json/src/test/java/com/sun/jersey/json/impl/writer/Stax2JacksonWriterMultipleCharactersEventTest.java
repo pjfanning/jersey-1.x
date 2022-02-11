@@ -45,9 +45,10 @@ import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
 import javax.xml.stream.XMLStreamException;
+
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerator;
 import junit.framework.TestCase;
-import org.codehaus.jackson.JsonFactory;
-import org.codehaus.jackson.JsonGenerator;
 
 /**
  *
