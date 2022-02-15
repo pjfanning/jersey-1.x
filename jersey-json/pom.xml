@@ -71,6 +71,23 @@
         </license>
     </licenses>
 
+    <developers>
+        <developer>
+            <id>JerseyTeam</id>
+            <name>Jersey Team</name>
+        </developer>
+        <developer>
+            <id>pjfanning</id>
+            <name>PJ Fanning</name>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git://github.com/pjfanning/jersey-1.x.git</connection>
+        <developerConnection>scm:git://github.com/pjfanning/jersey-1.x.git</developerConnection>
+        <url>https://github.com/pjfanning/jersey-1.x</url>
+    </scm>
+
     <profiles>
         <profile>
             <id>release</id>
