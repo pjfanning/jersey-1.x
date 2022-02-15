@@ -46,13 +46,13 @@
 
     <groupId>com.github.pjfanning</groupId>
     <artifactId>jersey-json</artifactId>
-    <version>1.20-SNAPSHOT</version>
+    <version>1.20</version>
     <packaging>jar</packaging>
     <name>jersey-json</name>
 
     <properties>
         <jersey.core.version>1.19.4</jersey.core.version>
-        <jackson2.version>2.11.4</jackson2.version>
+        <jackson2.version>2.13.0</jackson2.version>
         <jaxb.version>2.2.3-1</jaxb.version>
         <moxy.version>2.4.2</moxy.version>
         <junit.version>4.13.2</junit.version>
