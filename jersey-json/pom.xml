@@ -54,7 +54,8 @@
 
     <properties>
         <jersey.core.version>1.19.4</jersey.core.version>
-        <jackson2.version>2.13.0</jackson2.version>
+        <jackson2.version>2.13.2</jackson2.version>
+        <jackson2.databind.version>2.13.2.2</jackson2.databind.version>
         <jaxb.version>2.2.3-1</jaxb.version>
         <moxy.version>2.4.2</moxy.version>
         <junit.version>4.13.2</junit.version>
@@ -173,7 +174,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>${jackson2.version}</version>
+            <version>${jackson2.databind.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.jaxrs</groupId>
