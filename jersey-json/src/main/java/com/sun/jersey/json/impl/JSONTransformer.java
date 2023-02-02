@@ -85,11 +85,11 @@ final class JSONTransformer {
         return result;
     }
     
-    static String asJsonArray(Collection<? extends Object> collection) {
+    static String asJsonArray(Collection<? extends Object> collection) throws JSONException {
         return (null == collection) ? "[]" : (new JSONArray(collection)).toString();
     }
     
-    static String asJsonObject(Map map) {
+    static String asJsonObject(Map map) throws JSONException {
         return (null == map) ? "{}" : (new JSONObject(map)).toString();
     }
 }

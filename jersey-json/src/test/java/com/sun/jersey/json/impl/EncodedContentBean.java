@@ -53,7 +53,7 @@ public class EncodedContentBean {
     
     public static Object createTestInstance() {
         EncodedContentBean instance = new EncodedContentBean();
-        instance.one = "\tone\n\tbig";
+        instance.one = "one\n\tbig";
         instance.two = "haf\u010C";
         return instance;
     }
