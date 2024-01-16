@@ -1,5 +1,8 @@
 # jersey-json
 
+| :exclamation:  Users should stick with v1.20 release while issues are investigated in v1.21.0  |
+|----------------------------------------------|
+
 A version of jersey-json 1.x that relies on jersey 1.x jars but that uses Jackson 2 instead of the EOL jackson 1.
 
 * Built with the latest release of jersey 1.x - 1.19.4
