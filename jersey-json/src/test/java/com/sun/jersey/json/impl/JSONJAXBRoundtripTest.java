@@ -59,7 +59,7 @@ import java.util.*;
  *
  * @author Jakub.Podlesak@Sun.COM
  */
-public class JSONJAXBRoudtripTest extends TestCase {
+public class JSONJAXBRoundtripTest extends TestCase {
     
     private static final String PKG_NAME = "com/sun/jersey/json/impl/";
 
