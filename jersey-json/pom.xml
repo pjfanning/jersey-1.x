@@ -47,7 +47,7 @@
 
     <groupId>com.github.pjfanning</groupId>
     <artifactId>jersey-json</artifactId>
-    <version>1.21.0</version>
+    <version>1.22.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>jersey-json</name>
     <description>A fork of com.sun.jersey:jersey-json:1.19.4 that uses Jackson2 instead of EOL Jackson1.</description>
